@@ -1,1 +1,1 @@
-print("Merhaba dünya")
+print("Merhaba Github")
