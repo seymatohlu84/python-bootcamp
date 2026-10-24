@@ -1,3 +1,5 @@
+from collections import Counter
+
 def cift_toplam(liste):
     toplam=0
     for sayi in liste:
@@ -34,3 +36,12 @@ def en_sik(liste):
             en_sik_eleman=eleman
     return en_sik_eleman
 print(en_sik([1,2,2,3]))
+
+print (Counter("ali ata bak ali".split()))
+print (dict(Counter("ali ata bak ali".split())))
+print(Counter([1,2,2,3]))
+print(dict(Counter([1,2,2,3])))
+print(Counter([1,2,2,3]).most_common(1))
+print(dict(Counter([1,2,2,3]).most_common(1)))
+print(Counter([1, 2, 2, 3]).most_common(1)[0][0])
+print(Counter([1,2,2,3]).most_common(2))
