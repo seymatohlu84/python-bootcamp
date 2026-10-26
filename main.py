@@ -1,4 +1,7 @@
 from fastapi import FastAPI
+from pydantic import BaseModel
+class YeniGorev(BaseModel):
+    baslik:str 
 app= FastAPI()
 @app.get("/")
 def anasayfa():
@@ -13,3 +16,14 @@ gorevler = [
 @app.get("/gorevler")
 def gorevleri_listele():
     return gorevler
+
+
+@app.post("/gorevler")
+def gorev_ekle(yeni: YeniGorev):
+    print(yeni)
+    yeni_id=len(gorevler)+1
+    gorev={"id":yeni_id,"baslik":yeni.baslik,"tamam":False}
+    gorevler.append(gorev)
+    return gorev
+
+
