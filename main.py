@@ -26,4 +26,11 @@ def gorev_ekle(yeni: YeniGorev):
     gorevler.append(gorev)
     return gorev
 
-
+@app.delete("/gorevler/{gorev_id}")
+def gorev_sil(gorev_id: int):
+    for gorev in gorevler:
+        if gorev["id"]== gorev_id:
+            gorevler.remove(gorev)
+            return{"mesaj":"silindi"}
+    return {"mesaj":"bulunamadı"}
+                    
