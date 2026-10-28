@@ -21,7 +21,11 @@ def gorevleri_listele():
 @app.post("/gorevler")
 def gorev_ekle(yeni: YeniGorev):
     print(yeni)
-    yeni_id=len(gorevler)+1
+    en_buyuk_id=0
+    for g in gorevler:
+        if g["id"] > en_buyuk_id:
+            en_buyuk_id = g["id"]
+    yeni_id = en_buyuk_id+1
     gorev={"id":yeni_id,"baslik":yeni.baslik,"tamam":False}
     gorevler.append(gorev)
     return gorev
